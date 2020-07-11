@@ -6,5 +6,5 @@ module.exports = app => {
 
   // // Create a new Customer
   // app.post("/user", user.create);
-
+  app.get("/tasks",task.getTaskList);
 };

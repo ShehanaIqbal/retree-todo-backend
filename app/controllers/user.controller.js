@@ -17,6 +17,7 @@ exports.loginCheck = (req, res) => {
   });
 };
 
+
 // // Create and Save a new Customer
 // exports.create = (req, res) => {
 //   // Validate request
@@ -42,3 +43,19 @@ exports.loginCheck = (req, res) => {
 //     else res.send(data);
 //   });
 // };
+
+exports.getTaskList = (req, res) => {
+  User.getTaskList((err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Not found User with name ${req.params.mobile}.`
+        });
+      } else {
+        res.status(500).send({
+          message: "Error retrieving User with id " + req.params.mobile
+        });
+      }
+    } else res.send(data);
+  });
+};
