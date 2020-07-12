@@ -1,7 +1,7 @@
 const sql = require("./db.js");
 
 // constructor
-const User = function(user) {
+const Task = function(task) {
   this.mobile = user.mobile;
   this.password = user.password;
 };

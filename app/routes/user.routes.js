@@ -3,8 +3,5 @@ module.exports = app => {
 
   // Retrieve a single Customer with phone and password
   app.get("/user/:mobile/:password", user.loginCheck);
-
-  // // Create a new Customer
-  // app.post("/user", user.create);
-  app.get("/tasks",task.getTaskList);
+  
 };

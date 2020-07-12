@@ -1,16 +1,16 @@
-const User = require("../models/user.model.js");
+const Task = require("../models/task.model.js");
 
 // check for password with corresponding username
-exports.loginCheck = (req, res) => {
-  User.loginCheck(req.params.mobile,req.params.password, (err, data) => {
+exports.getAllTasks = (req, res) => {
+  Task.getAllTasks(req, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found User with name ${req.params.mobile}.`
+          message: `Not found Task`
         });
       } else {
         res.status(500).send({
-          message: "Error retrieving User with id " + req.params.mobile
+          message: "Error retrieving All tasks"
         });
       }
     } else res.send(data);
