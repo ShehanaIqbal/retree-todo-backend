@@ -7,7 +7,7 @@ const Task = function(task) {
   this.score= task.score;
 };
 
-Task.getAllTasks = (result) => {
+Task.getAllTasks = result => {
   sql.query(`SELECT * FROM task`, (err, res) => {
     if (err) {
       console.log("error: ", err);
