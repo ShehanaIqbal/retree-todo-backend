@@ -1,41 +1,23 @@
 const sql = require("./db.js");
 
-// constructor
 const Task = function(task) {
-  this.mobile = user.mobile;
-  this.password = user.password;
+  this.title = task.title;
+  this.desc = task.desc;
+  this.link= task.link;
+  this.score= task.score;
 };
 
-User.loginCheck = (mobile,password, result) => {
-  sql.query(`SELECT * FROM user WHERE phone = '${mobile}' and password = '${password}'`, (err, res) => {
+Task.getAllTasks = (result) => {
+  sql.query(`SELECT * FROM task`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
       return;
     }
-
-    if (res.length) {
-      console.log("found user: ", res[0]);
-      result(null, res[0]);
-      return;
-    }
-
-    // not found Customer with the id
-    result({ kind: "Login failed" }, null);
+    
+    console.log("found task: ", res);
+    result(null, res);
   });
 };
 
-module.exports = User;
-
-// User.create = (newUser, result) => {
-//   sql.query("INSERT INTO user SET ?", newUser, (err, res) => {
-//     if (err) {
-//       console.log("error: ", err);
-//       result(err, null);
-//       return;
-//     }
-
-//     console.log("created user: ", { id: res.insertId, ...newUser });
-//     result(null, { id: res.insertId, ...newUser });
-//   });
-// };
+module.exports = Task;
