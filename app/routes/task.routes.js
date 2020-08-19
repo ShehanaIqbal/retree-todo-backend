@@ -2,6 +2,6 @@ module.exports = app => {
 
     const task = require("../controllers/task.controller.js");
   
-    app.get("/task", task.getAllTasks);
+    app.get("/task/:userId", task.getAllTasks);
 
   };
