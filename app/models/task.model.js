@@ -1,7 +1,7 @@
 const sql = require("./db.js");
 
 const Task = function(task) {
-  this.userId = user.userId;
+  this.userId = task.userId;
   this.title = task.title;
   this.desc = task.desc;
   this.link= task.link;
