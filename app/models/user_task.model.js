@@ -13,7 +13,6 @@ const UserTask = function(userTask) {
         result(err, null);
         return;
       }
-      
       console.log("found task: ", res);
       result(null, res);
     });

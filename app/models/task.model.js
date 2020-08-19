@@ -16,7 +16,6 @@ Task.getAllTasks = (userId,result) => {
       result(err, null);
       return;
     }
-    
     console.log("found task: ", res);
     result(null, res);
   });
